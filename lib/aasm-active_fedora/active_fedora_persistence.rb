@@ -1,3 +1,6 @@
+require 'rdf'
+require 'sufia'
+
 module AASM
   module Persistence
     module ActiveFedoraPersistence
