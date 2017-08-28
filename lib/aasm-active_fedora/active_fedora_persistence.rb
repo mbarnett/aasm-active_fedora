@@ -1,5 +1,4 @@
 require 'rdf'
-require 'sufia'
 
 module AASM
   module Persistence
@@ -29,13 +28,6 @@ module AASM
         base.send(:remove_method, :temp_af_moveaside)
 
         base.after_initialize :aasm_ensure_initial_state
-
-        # add the property to SolrDocuments as well
-        Sufia::SolrDocumentBehavior.module_eval do
-          define_method attribute_name do
-            self[Solrizer.solr_name(attribute_name)]
-          end
-        end
       end
 
       module InstanceMethods
